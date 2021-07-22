@@ -1,12 +1,12 @@
-const Products = require("../models/products.model");
+const Authors = require("../models/authors.model");
 
 module.exports = {
     create: function (req, res) {
         console.log("create method executed");
 
-        Products.create(req.body)
-            .then((products) => {
-                res.json(products);
+        Authors.create(req.body)
+            .then((authors) => {
+                res.json(authors);
             })
             .catch((err) => {
                 res.status(400).json(err);
@@ -16,9 +16,9 @@ module.exports = {
     getAll(req, res) {
         console.log("getAll method executed");
 
-        Products.find()
-            .then((products) => {
-                res.json(products);
+        Authors.find()
+            .then((authors) => {
+                res.json(authors);
             })
             .catch((err) => {
                 res.json(err);
@@ -28,9 +28,9 @@ module.exports = {
     getOne(req, res) {
         console.log("getOne method executed", "url params", req.params);
 
-        Products.findById(req.params)
-            .then((products) => {
-                res.json(products);
+        Authors.findById(req.params)
+            .then((authors) => {
+                res.json(authors);
             })
             .catch((err) => {
                 res.json(err);
@@ -40,9 +40,9 @@ module.exports = {
     delete(req, res) {
         console.log("Delete method executed", "url params", req.params);
 
-        Products.findByIdAndDelete(req.params)
-            .then((products) => {
-                res.json(products);
+        Authors.findByIdAndDelete(req.params)
+            .then((authors) => {
+                res.json(authors);
             })
             .catch((err) => {
                 res.json(err);
@@ -52,9 +52,9 @@ module.exports = {
     update(req, res) {
         console.log("update method executed", "url params: ", req.params);
 
-        Products.findByIdAndUpdate(req.params, req.body)
-            .then((products) => {
-                res.json(products);
+        Authors.findByIdAndUpdate(req.params, req.body)
+            .then((authors) => {
+                res.json(authors);
             })
             .catch((err) => {
                 res.status(400).json(err);
@@ -62,8 +62,8 @@ module.exports = {
     },
 
     // createMany(req, res) {
-    //     const promises = req.body.map((products) => {
-    //         return Products.create(products);
+    //     const promises = req.body.map((authors) => {
+    //         return Authors.create(authors);
     //     });
 
     //     Promise.allSettled(promises).then((results) => {
